@@ -1,13 +1,15 @@
-# fisherbrand_pps4102_balance
-#### ROS Driver for Fisher Scientific PPS4102 Top Pan Balance
-#### Uses RS232-USB adapter for serial communication
+# ika_plate_rct_digital
+#### ROS Driver for IKA RCT Digital hot plate and stirrer
+#### Uses USB for serial communication
 ##### Written by Jakub Glowacki
 
 ## How to Launch
 The easiest way to launch the package is with roslaunch:
 ```
-roslaunch fisherbrand_pps4102_balance FisherROS.launch
+roslaunch ika_rct_digital IKAROS.launch
 ```
+
+# TODO: Update README
 Alternatively, can be launched using rosrun:
 ```
 rosrun fisherbrand_pps4102_balance FisherBalanceROS
