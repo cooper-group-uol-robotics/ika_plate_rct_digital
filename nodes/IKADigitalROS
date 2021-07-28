@@ -10,5 +10,4 @@ if __name__ == "__main__": #Object oriented initialization for ROS
     IKA_ROS = IKADriverROS() #Create instance of ROS Wrapper
     rospy.on_shutdown(IKA_ROS.stopHeat) 
     rospy.on_shutdown(IKA_ROS.stopStir)#Turn off scale when driver is turned off
-    rospy.loginfo("IKA driver started")
     rospy.spin()

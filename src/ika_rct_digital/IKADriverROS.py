@@ -18,7 +18,7 @@ class IKADriverROS:
         rospy.Subscriber("IKA_Commands", IKACommand, self.callback_commands)
         # Initialize ros published for Balance responses (weights)
         pub = rospy.Publisher("IKA_Readings", IKAReading, queue_size=10)
-        rate = rospy.Rate(0.2)
+        rate = rospy.Rate(1)
         rospy.loginfo("IKA driver started")
         while not rospy.is_shutdown():
             tempPlate = self.IKA.getHotplateTemp()
