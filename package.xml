@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>fisherbrand_pps4102_balance</name>
+  <name>ika_rct_digital</name>
   <version>1.0.0</version>
-  <description>A ROS Driver for Fisher Scientific PPS4102 Balance. Uses RS232-USB to communicate.</description>
+  <description>A ROS Driver for IKA RCT Digital Heater-Stirrer. Uses Virtual COM Port to communicate.</description>
 
   <maintainer email="jglowa@liverpool.ac.uk">Jakub Glowacki</maintainer>
 

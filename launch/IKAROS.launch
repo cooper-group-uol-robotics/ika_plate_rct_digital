@@ -1,0 +1,3 @@
+<launch>
+	<node name="IKADigitalROS" pkg="ika_rct_digital" type="IKADigitalROS" /> 	
+</launch>

@@ -2,9 +2,9 @@
 
 from distutils.core import setup
 from catkin_pkg.python_setup import generate_distutils_setup
-print("generating python modules")
+
 d = generate_distutils_setup(
-    packages=['fisherbrand_pps4102_balance'],
+    packages=['ika_rct_digital'],
     package_dir={'': 'src'}
 )
 
