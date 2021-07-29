@@ -26,14 +26,14 @@ rostopic pub -1 /IKA_Commands ika_rct_digital/IKACommand '{ika_command: 7, ika_p
 ```
 
 ## Possible commands:
-0 | Turns on the heat bed
-1 | Turns off the heat bed
-2 | Turns on the stirrer
-3 | Turns off the stirrer
-4 | Sets the stirrer RPM
-5 | Sets the heater temperature in degrees celsius
-6 | Turns on stirrer and sets it to specified RPM
-7 | Turns on hotplate and sets it to specified temperature 
+0 | Turns on the heat bed \
+1 | Turns off the heat bed\
+2 | Turns on the stirrer\
+3 | Turns off the stirrer\
+4 | Sets the stirrer RPM\
+5 | Sets the heater temperature in degrees celsius\
+6 | Turns on stirrer and sets it to specified RPM\
+7 | Turns on hotplate and sets it to specified temperature \
 8 | Turns off hotplate and stirrer and resets values to 0
 
 
