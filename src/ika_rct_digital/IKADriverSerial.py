@@ -23,7 +23,7 @@ class IKADriver:
             timeout=1
         )
 
-    # Commands are defined in Balance manual, however need to be sent over serial as
+    # Commands are defined in IKA datasheet, however need to be sent over serial as
     # ASCII encoded byte arrays and must end with a carriage return and line break to
     # be recognized. Received messsages can also be decoded then to unicode strings.
 
@@ -52,19 +52,19 @@ class IKADriver:
         return True
 
     def setHeat(self, heat):
-        # Turn off stirring rod motor
+        # Set hotplate temperature
         global serialCom
         serialCom.write(bytearray("OUT_SP_1 " + str(heat) + "\r\n", "ascii"))
         return True
 
     def setStir(self, stir):
-        # Turn off stirring rod motor
+        # set stirrer speed
         global serialCom
         serialCom.write(bytearray("OUT_SP_4 " + str(stir) + "\r\n", "ascii"))
         return True
 
     def getHotplateTemp(self):
-        # Turn off stirring rod motor
+        # get temperature of hotplate by pushing a serial command and then reading the response over serial and using regex to extract the number
         global serialCom
         serialCom.write(bytearray("IN_PV_2\r\n", "ascii"))
         x = serialCom.read_until("\n")  # Read response
@@ -76,7 +76,7 @@ class IKADriver:
         return s[0]
 
     def getExternalTemp(self):
-        # Turn off stirring rod motor
+        # get external probe temperature by pushing a serial command and then reading the response over serial and using regex to extract the number
         global serialCom
         serialCom.write(bytearray("IN_PV_1\r\n", "ascii"))
         x = serialCom.read_until("\n")  # Read response
@@ -88,7 +88,7 @@ class IKADriver:
         return s[0]
 
     def getStirringSpeed(self):
-        # Turn off stirring rod motor
+        # get stirring speed by pushing a serial command and then reading the response over serial and using regex to extract the number
         global serialCom
         serialCom.write(bytearray("IN_PV_4\r\n", "ascii"))
         x = serialCom.read_until("\n")  # Read response
@@ -100,7 +100,7 @@ class IKADriver:
         return s[0]
 
     def getViscosityTrend(self):
-        # Turn off stirring rod motor
+        # get stirring viscosity trend by pushing a serial command and then reading the response over serial and using regex to extract the number
         global serialCom
         serialCom.write(bytearray("IN_PV_5\r\n", "ascii"))
         x = serialCom.read_until("\n")  # Read response

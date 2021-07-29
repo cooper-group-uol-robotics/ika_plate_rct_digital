@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 
-# ROS Wrapper for Fisher Scientific PPS4102 Top Pan Balance Serial Driver
-# Utilises ROS Topics to facilitate communication with balance using a serial driver
+# ROS Wrapper for Serial Driver for IKA RCT Digital Heater-Stirrer
+# Uses ROS to facilitate control of the hotplate and stirrer
 # Made by Jakub Glowacki 27/07/2021
 
 import rospy
@@ -13,20 +14,19 @@ class IKADriverROS:
 
     def __init__(self):
         global pub
-        self.IKA = IKADriver()  # Create object of BalanceDriver class, for serial communication
+        self.IKA = IKADriver()  # Create object of IKADriver class, for serial communication
         # Initialize ros subscriber of topic to which commands are published
         rospy.Subscriber("IKA_Commands", IKACommand, self.callback_commands)
-        # Initialize ros published for Balance responses (weights)
+        # Initialize ros published for readings of temperatures and stirring values
         pub = rospy.Publisher("IKA_Readings", IKAReading, queue_size=10)
-        rate = rospy.Rate(1)
+        rate = rospy.Rate(1) #Initialize rate object for consistent timed looping
         rospy.loginfo("IKA driver started")
-        while not rospy.is_shutdown():
+        while not rospy.is_shutdown(): #Whenever driver is running, loop each second polling all values and publishing them to topic
             tempPlate = self.IKA.getHotplateTemp()
             tempExt = self.IKA.getExternalTemp()
             stirSpeed = self.IKA.getStirringSpeed()
             visc = self.IKA.getViscosityTrend()
             pub.publish(float(tempPlate), float(tempExt), float(stirSpeed), float(visc))
-            print("Hotplate Temperature: " + str(tempPlate) + "| External Temperature: " + str(tempExt) + "| Stirring Speed: " + str(stirSpeed) + "| Viscosity Trend: " + str(visc))
             rate.sleep()
 
         # Call upon appropriate function in driver for any possible command
@@ -83,5 +83,3 @@ class IKADriverROS:
         else:
             rospy.loginfo("invalid command")
 
-
-print("working")
