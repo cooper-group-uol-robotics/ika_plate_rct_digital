@@ -12,10 +12,10 @@ import re
 class IKADriver:
     serialCom = serial.Serial()  # Globally define serial communication
 
-    def __init__(self):  # Init function starts serial communication
+    def __init__(self, serial_port):  # Init function starts serial communication
         global serialCom
         serialCom = serial.Serial(  # Initialize serial communication object
-            port='/dev/ttyACM0',
+            port=serial_port,
             baudrate=9600,
             parity=serial.PARITY_EVEN,
             stopbits=serial.STOPBITS_ONE,

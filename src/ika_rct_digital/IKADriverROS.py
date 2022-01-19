@@ -11,9 +11,9 @@ from ika_rct_digital.IKADriverSerial import IKADriver
 
 class IKADriverROS:
 
-    def __init__(self):
+    def __init__(self, serial_port):
         global pub
-        self.IKA = IKADriver()  # Create object of BalanceDriver class, for serial communication
+        self.IKA = IKADriver(serial_port)  # Create object of IKADriver class, for serial communication
         # Initialize ros subscriber of topic to which commands are published
         rospy.Subscriber("IKA_Commands", IKACommand, self.callback_commands)
         # Initialize ros published for Balance responses (weights)

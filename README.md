@@ -6,13 +6,15 @@
 ## How to Launch
 The easiest way to launch the package is with roslaunch:
 ```
-roslaunch ika_rct_digital IKAROS.launch
+roslaunch ika_rct_digital IKAROS.launch serial_port:=<port_name>
 ```
+This will launch the plate connected to the provided serial port. If no serial port argument is provided, the default port '/dev/ttyACM0' will be used.
 
-Alternatively, can be launched using rosrun:
+Alternatively, the plate driver can be launched using rosrun:
 ```
 rosrun ika_rct_digital IKADigitalROS
 ```
+Similarly, if no serial port argument is provided, the serial port '/dev/ttyACM0' is used.
 
 ## ROS Topics:
 IKA_Commands | For publishing commands to\

@@ -1,13 +1,19 @@
 #!/usr/bin/env python
 
-#Script to use the Fisher Scientific PPS4102 Top Pan balance in ROS
+#Node to use the IKA RCT Digital plate Top Pan balance in ROS
 
 import rospy
+import sys
 from ika_rct_digital import IKADriverROS
             
 if __name__ == "__main__": #Object oriented initialization for ROS
+    if len(sys.argv) > 1:
+        serial_port = sys.argv[1]
+    else:
+        serial_port = '/dev/ttyACM0'
+        rospy.logwarn('No input serial port is provided. The default serial port (ttyACM0) is used')
     rospy.init_node("IKA_driver", anonymous=True) #initialize rospy node
-    IKA_ROS = IKADriverROS() #Create instance of ROS Wrapper
+    IKA_ROS = IKADriverROS(serial_port) #Create instance of ROS Wrapper
     rospy.on_shutdown(IKA_ROS.stopHeat) 
     rospy.on_shutdown(IKA_ROS.stopStir)#Turn off scale when driver is turned off
     rospy.spin()
