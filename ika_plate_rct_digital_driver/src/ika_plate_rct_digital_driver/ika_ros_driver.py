@@ -4,9 +4,9 @@
 # Made by Jakub Glowacki 27/07/2021
 
 import rospy
-from ika_rct_digital.msg import IKAReading
-from ika_rct_digital.msg import IKACommand
-from ika_rct_digital.IKADriverSerial import IKADriver
+from ika_plate_rct_digital_msgs.msg import IKAReading
+from ika_plate_rct_digital_msgs.msg import IKACommand
+from ika_plate_rct_digital_driver.ika_serial_driver import IKADriver
 
 
 class IKADriverROS:

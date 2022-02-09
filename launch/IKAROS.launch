@@ -1,5 +1,0 @@
-<launch>
-	<arg name="serial_port" value="/dev/ttyACM0"/>
-	
-	<node name="IKADigitalROS" pkg="ika_rct_digital" type="IKADigitalROS" args="$(arg serial_port)" output="screen"/> 	
-</launch>

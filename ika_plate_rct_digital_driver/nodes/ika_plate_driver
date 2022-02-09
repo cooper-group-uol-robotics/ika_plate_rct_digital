@@ -4,7 +4,7 @@
 
 import rospy
 import sys
-from ika_rct_digital import IKADriverROS
+from ika_plate_rct_digital_driver import IKADriverROS
             
 if __name__ == "__main__": #Object oriented initialization for ROS
     if len(sys.argv) > 1:

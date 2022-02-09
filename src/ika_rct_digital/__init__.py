@@ -1,2 +1,0 @@
-from ika_rct_digital.IKADriverROS import IKADriverROS
-from ika_rct_digital.IKADriverSerial import IKADriver
