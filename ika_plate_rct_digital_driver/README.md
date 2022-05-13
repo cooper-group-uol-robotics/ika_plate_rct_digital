@@ -23,7 +23,7 @@ IKA_Readings | Periodically (every second) readings from the plate are published
 ## How to send Commands:
 Commands are sent using the IKA_Commands topic. Each command has its own command ID which can be sent through the topic as an ika_command. An ika_command is just a simple integer corresponding to a command, as indicated by the list below. Additionally, some of the commands support a second field, ika_param, which allows you to set either the temperature of the heat plate or the speed of the stirrer. This is also an integer. If this is passed to a command that doesn't require it it will be ignored, if it isn't passed to a command that requires it it'll be assumed to be 0. An example command which turns on the hotplate and sets it to 100 degrees is like so:
 ```
-rostopic pub -1 /IKA_Commands ika_rct_digital/IKACommand '{ika_command: 7, ika_param: 100}' 
+rostopic pub -1 /IKA_Commands ika_plate_rct_digital_msgs/IKACommand '{ika_command: 7, ika_param: 100}' 
 
 ```
 
